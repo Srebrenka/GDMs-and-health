@@ -47,3 +47,23 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+#Anything in the data folder
+data/
+#Any intermediate output csvs
+*.csv
+#Any Xml files from PHRF
+*xml
+#Any plots or visual output
+*.pdf
+*.png
+#Rdata is already ignored above. 
+
+
+#Powerpoint
+*.pptx
+
+#Word documents
+*.doc
+*.docx
+
