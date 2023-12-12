@@ -26,11 +26,10 @@
 #     Main Script       #
 #                       #
 #########################
-setwd("/Users/srebrenkaletina/Downloads")
 
-source("/Users/srebrenkaletina/Downloads/02_pals_create_nets.R") 
+source("02_pals_create_nets.R") 
 
-plot
+
 #########################
 #                       #
 #    Loaded packages      #
@@ -45,13 +44,16 @@ plot
 # load in this script:
 library(readxl)
 library(car)
-# ?:
-library(Hmisc)
-library(furniture)
-library(magrittr)
-library(lubridate)
+
+# library(Hmisc)
+# library(furniture)
+# library(magrittr)
+# library(lubridate)
+
+
 #######################################
-#########  Basic network descriptives
+#  Basic network descriptives
+#######################################
 
 
 for (i in 1:22) {
@@ -112,40 +114,7 @@ write.table(netdat, file = "Network_properties_PaLSdec.csv", dec = ',' ,
             sep = ";",row.names = TRUE)
 write.xlsx(netdat, "Network_properties_PaLSdec.xlsx")
 
-# more nodes than data rows in pals.sav - bc students that 
-# did not participate in the study have been nominated as friends
 
-# NOTE:
-# the true number of schoolmates is not know from the data
-# some may be not in the attribute data and neither in network
-
-# sanity check:
-# check N of missing all friends (2 potential different reasons:
-# not having friends or skipping that part (sna part) of the survey 
-
-
-nams1=list()
-nams2=list()
-for (i in schools$school){
-  school = pals %>% 
-    filter(schoolid == i)
-  net <- school %>% 
-    dplyr::select(palsqid, fr1id, fr2id,fr3id, fr4id, fr5id, fr6id) 
-  
-  nam1 <- sum(net$fr1id == "missing - 20 missed all friends items")
-  nams1[[i]] <- nam1
-  nam2 <- sum(net$fr2id == "missing - 20 missed all friends items")
-  nams2[[i]] <- nam2
-}
-
-nams1
-nams2
-
-# nams1 is the same as nams2, ok
-
-# attribute data: gender
-sum(is.na(pals$sex)) # 0
-table(pals$sex)
 
 # gender per school table
 gen=list()

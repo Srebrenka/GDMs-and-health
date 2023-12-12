@@ -4,7 +4,6 @@
 
 #rm(list = ls())
 
-
 #################
 #               #
 #      Notes    #
@@ -44,13 +43,10 @@ setwd("/Users/srebrenkaletina/Downloads")
 pals <- read.spss("PalsData.SAV", to.data.frame = TRUE)
 colnames(pals) <- tolower(colnames(pals))
 
-dim(pals)
-
 
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-#                 NETWORKS
-
+#                 CREATING NETWORKS
+# important note: network WITHOUT isolates are created
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 palnet = list() 
